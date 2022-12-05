@@ -15,6 +15,11 @@ def test_bfs():
     bfs = BFS()
     bfs.bfs(1,5)
 
+def test_bfs_min():
+    g = Graph(300,300,3)
+    bfs = BFS()
+    bfs.bfs(1,2)
+
 def test_bfs_big():
     g = Graph(300000,300000,1000000)
     bfs = BFS()

@@ -16,6 +16,11 @@ def test_dfs():
     dfs = DFS()
     dfs.dfs(1,5)
 
+def test_dfs_min():
+    g = Graph(300,300,3)
+    dfs = DFS()
+    dfs.dfs(1,2)
+
 def test_dfs_big():
     g = Graph(300000,300000,1000000)
     dfs = DFS()
