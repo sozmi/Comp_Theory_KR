@@ -1,7 +1,5 @@
-from GraphObject import *
-import sys 
-sys.path.insert(1, 'D:\\University\\3_course\\Теория алгоритмов\\Курсач\\src\\model')
-from Vertex import *
+from .GraphObject import *
+from .Vertex import *
 import pygame
 
 class Edge (GraphObject):

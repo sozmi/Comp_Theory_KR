@@ -1,10 +1,8 @@
 import math
-import sys
-sys.path.insert(1, 'D:\\University\\3_course\\Теория алгоритмов\\Курсач\\src\\model')
 from random import randint, random
-import Vertex
-from Edge import *
-from GraphObject import GraphObject
+from .Vertex import *
+from .Edge import *
+from .GraphObject import GraphObject
 
 A_ASCII = 65  # A ascii letter constant
 

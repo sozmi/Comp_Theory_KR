@@ -1,32 +1,53 @@
 import pytest
-import sys
-sys.path.insert(1, 'D:\\University\\3_course\\Теория алгоритмов\\Курсач\\src\\model')
-from Graph import *
-from BFS import *
+from src.model.Graph import *
+from src.model.BFS import *
 
-def test_translate_wrong_input():
-    g = Graph(300,300,100)
-    bfs = BFS()
-    with pytest.raises(ValueError): 
-        bfs.translate('pdpkfnrjef')
 
-def test_bfs():
-    g = Graph(300,300,100)
-    bfs = BFS()
-    bfs.bfs(1,5)
+def pytest_namespace():
+    return {'bfs': 0, 'start': 0, 'end': 0}
 
-def test_bfs_min():
-    g = Graph(300,300,3)
-    bfs = BFS()
-    bfs.bfs(1,2)
 
-def test_bfs_big():
-    g = Graph(300000,300000,1000000)
-    bfs = BFS()
-    bfs.bfs(10,502531)
+@pytest.fixture()
+def resourse_setup(request):
+    Graph(300, 300, 100)
+    pytest.bfs = BFS()
+    pytest.start = 1
+    pytest.end = 5
 
-def test_bfs_wrong_input():
-    g = Graph(300,300,100)
-    bfs = BFS()
-    with pytest.raises(ValueError): 
-        bfs.bfs('pdpkfnrjef', 'ghfh')
+
+@pytest.fixture()
+def resourse_setup_min(request):
+    Graph(300, 300, 3)
+    pytest.bfs = BFS()
+    pytest.start = 1
+    pytest.end = 2
+
+
+@pytest.fixture()
+def resourse_setup_max(request):
+    Graph(300000, 300000, 1000000)
+    pytest.bfs = BFS()
+    pytest.start = 100
+    pytest.end = 502000
+
+
+def test_translate_wrong_input(resourse_setup):
+    with pytest.raises(ValueError):
+        pytest.bfs.translate('pdpkfnrjef')
+
+
+def test_bfs(resourse_setup):
+    pytest.bfs.bfs(pytest.start, pytest.end)
+
+
+def test_bfs_min(resourse_setup_min):
+    pytest.bfs.bfs(pytest.start, pytest.end)
+
+
+def test_bfs_big(resourse_setup_max):
+    pytest.bfs.bfs(pytest.start, pytest.end)
+
+
+def test_bfs_wrong_input(resourse_setup):
+    with pytest.raises(ValueError):
+        pytest.bfs.bfs('pdpkfnrjef', 'ghfh')

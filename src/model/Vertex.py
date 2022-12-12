@@ -1,7 +1,6 @@
-import sys
-sys.path.insert(1, 'D:\\University\\3_course\\Теория алгоритмов\\Курсач\\src\\model')
-from GraphObject import *
 import pygame
+from .GraphObject import *
+
 
 def render_text(text, family, size, color=(0, 0, 0), aa=False):
     font = pygame.font.SysFont(family, size)

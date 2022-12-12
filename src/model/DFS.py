@@ -1,10 +1,8 @@
 import pygame
-import sys
-sys.path.insert(1, 'D:\\University\\3_course\\Теория алгоритмов\\Курсач\\src\\model')
-from Vertex import *
-from Edge import *
-from Graph import *
-from AlgObject import AlgObject
+from .Vertex import *
+from .Edge import *
+from .Graph import *
+from .AlgObject import AlgObject
 from random import randint
 from collections import defaultdict
 
